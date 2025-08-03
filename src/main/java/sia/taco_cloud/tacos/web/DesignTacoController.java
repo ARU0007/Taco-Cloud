@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import sia.taco_cloud.tacos.domain.Ingredient;
 import sia.taco_cloud.tacos.domain.Ingredient.Type;
+import sia.taco_cloud.tacos.domain.Taco;
 import sia.taco_cloud.tacos.domain.TacoOrder;
 
 
@@ -46,6 +47,11 @@ public class DesignTacoController {
     @ModelAttribute(name = "tacoOrder")
     public TacoOrder order(){
         return new TacoOrder();
+    }
+
+    @ModelAttribute(name = "taco")
+    public Taco taco(){
+        return new Taco();
     }
 
     @GetMapping
