@@ -3,11 +3,13 @@ package sia.taco_cloud.tacos.web;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import sia.taco_cloud.tacos.domain.Ingredient;
 import sia.taco_cloud.tacos.domain.Ingredient.Type;
+import sia.taco_cloud.tacos.domain.TacoOrder;
 
 
 import java.util.Arrays;
@@ -40,6 +42,17 @@ public class DesignTacoController {
 
         }
     }
+
+    @ModelAttribute(name = "tacoOrder")
+    public TacoOrder order(){
+        return new TacoOrder();
+    }
+
+    @GetMapping
+    public String showDesignForm(){
+        return "design";
+    }
+
     private Iterable<Ingredient> filterByType( List<Ingredient> ingredients, Type type){
         return ingredients.stream()
                 .filter(x -> x.getType().equals(type))
