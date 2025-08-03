@@ -1,4 +1,4 @@
-package sia.taco_cloud.tacos;
+package sia.taco_cloud.tacos.domain;
 
 import lombok.Data;
 
